@@ -57,7 +57,8 @@ if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) {
         ) => void
       ) {
         try {
-          const domain = profile._json.hd;
+          // const domain = profile._json.hd;
+          const domain = "baenam.net";
 
           if (!domain) {
             throw GoogleWorkspaceRequiredError();
