@@ -1,8 +1,8 @@
 up:
-	docker-compose up -d redis postgres s3
-	yarn install --pure-lockfile
-	yarn sequelize db:migrate
-	yarn dev:watch
+	docker-compose up -d redis postgres s3 outline
+# yarn install --pure-lockfile
+# yarn sequelize db:migrate
+# yarn dev:watch
 
 build:
 	docker-compose build --pull outline
@@ -26,3 +26,6 @@ destroy:
 	docker-compose rm -f
 
 .PHONY: up build destroy test watch # let's go to reserve rules names
+
+logs:
+	docker-compose logs -f
