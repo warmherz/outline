@@ -1,5 +1,12 @@
+create-db:
+	docker-compose run --rm outline yarn sequelize db:create --env=production-ssl-disabled
+
+migrate-db:
+	docker-compose run --rm outline yarn sequelize db:migrate --env=production-ssl-disabled
+
 up:
-	docker-compose up -d redis postgres s3 outline
+	docker-compose up -d
+# docker-compose up -d redis postgres s3 outline
 # yarn install --pure-lockfile
 # yarn sequelize db:migrate
 # yarn dev:watch
