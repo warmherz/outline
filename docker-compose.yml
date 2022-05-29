@@ -14,30 +14,53 @@ services:
     image: postgres
     ports:
       - "5432:5432"
+    volumes:
+      - database-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: outline
-    user: "postgres:postgres"
+    # user: "postgres:postgres"
     healthcheck:
       test: ["CMD", "pg_isready -U user"]
       interval: 30s
       timeout: 20s
       retries: 3
-  s3:
-    image: lphoward/fake-s3
+  storage:
+    image: minio/minio
+    # env_file: ./env.minio
     ports:
-      - "4569:4569"
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=5674bbdcc10ece28
+      - MINIO_ROOT_PASSWORD=4ac47bf367c48c9181cf5c0caeb0a8459ed42a2f78c8f207d023dade42dce93f
+    entrypoint: sh
+    command: -c 'minio server /data --console-address ":9001"'
+    deploy:
+      restart_policy:
+        condition: on-failure
     volumes:
-      - ./fakes3:/fakes3_root
+      - storage-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://storage:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+  # s3:
+  #   image: lphoward/fake-s3
+  #   ports:
+  #     - "4569:4569"
+  #   volumes:
+  #     - ./fakes3:/fakes3_root
   outline:
     image: outline:v001
     command:
       - sh 
       - -c 
       - |
-        yarn sequelize db:migrate --env=production-ssl-disabled
         yarn start
+# yarn sequelize db:migrate --env=production-ssl-disabled
     build:
       context: .
       dockerfile: Dockerfile
@@ -50,4 +73,32 @@ services:
     depends_on:
       - postgres
       - redis
-      - s3
+      - storage
+      # - s3
+
+  https-portal:
+    image: steveltn/https-portal
+    # env_file: ./.env
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      DOMAINS: 'baenam.net'
+      # STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
+    links:
+      - outline
+      - storage
+    restart: always
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+volumes:
+  https-portal-data: # Recommended, to avoid re-signing when upgrading HTTPS-PORTAL
+  storage-data:
+  database-data:
