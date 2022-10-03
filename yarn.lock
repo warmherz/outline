@@ -2200,14 +2200,14 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@sentry/browser@6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-6.3.1.tgz#6142dd4c72308f4e1a12e585e3300fd54ca058cd"
-  integrity sha512-Ri4tYsyuJIeLQnvQUqbpGzailUYpbjFSYM0+yEM63gPsjiXdg+W8yKHluA6cs6FLWVN3oWfwHW7Kd61echlGuw==
+"@sentry/browser@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-7.14.1.tgz#1327742f8b62c41bd1c1e8b23827aae08aa90dde"
+  integrity sha512-b9nW2+kT9Jl/tfzJmvzpnS6F8ziC62TDx04a7kZDtuaVA5rKKTTlLDg8ZamCRFjjnuwuFhLnzxO34N0KfeTqHg==
   dependencies:
-    "@sentry/core" "6.3.1"
-    "@sentry/types" "6.3.1"
-    "@sentry/utils" "6.3.1"
+    "@sentry/core" "7.14.1"
+    "@sentry/types" "7.14.1"
+    "@sentry/utils" "7.14.1"
     tslib "^1.9.3"
 
 "@sentry/core@6.3.1":
@@ -2221,6 +2221,16 @@
     "@sentry/utils" "6.3.1"
     tslib "^1.9.3"
 
+"@sentry/core@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.14.1.tgz#6b046181a1c13ed0fbc90d88d9c18ab1d70d98da"
+  integrity sha512-sjk60Gf5o9zynhWe1e0ro9uQO4OrKZ3H9xfgBf2ExgKXeMfKzYp5r2v2OKNevEde36Sr/DzlpiPj8EK67xrWPA==
+  dependencies:
+    "@sentry/hub" "7.14.1"
+    "@sentry/types" "7.14.1"
+    "@sentry/utils" "7.14.1"
+    tslib "^1.9.3"
+
 "@sentry/hub@6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-6.3.1.tgz#dda07888a82d1c48bbefa00205bfa9d035691f07"
@@ -2228,6 +2238,15 @@
   dependencies:
     "@sentry/types" "6.3.1"
     "@sentry/utils" "6.3.1"
+    tslib "^1.9.3"
+
+"@sentry/hub@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-7.14.1.tgz#f24d8ac65ff39dab6dbaa859c06a0651359f20d2"
+  integrity sha512-BWh5jUvGmzCsJtYy6EX3qA6gTOxwGhA64IEXHbzwIAnBoG+VWao3addaL77AGR9pIgAqn6ssfkX665OZa+GPGw==
+  dependencies:
+    "@sentry/types" "7.14.1"
+    "@sentry/utils" "7.14.1"
     tslib "^1.9.3"
 
 "@sentry/minimal@6.3.1":
@@ -2254,15 +2273,14 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/react@^6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@sentry/react/-/react-6.3.1.tgz#5082aa145972eec38cc8ceea8e5d8ee3f7f5f86a"
-  integrity sha512-3eFSqdS0QAb4RFNxS0gzVm05q8c5KQp+3TlmqBjoovqWL/FvGvDoqaBmFT+arvPZ88qngveMEk1v6445L0gFTg==
+"@sentry/react@^7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/react/-/react-7.14.1.tgz#0b65796094977fcec8102a847b0e1c869508a1e1"
+  integrity sha512-KPfreZ9O63RDlryh1YjYmycDlteulqcXqeRv/OzQCZb08RcSybdho1QyhKU4LeyTc3rCQx4TNo4rSSwgWxKvdg==
   dependencies:
-    "@sentry/browser" "6.3.1"
-    "@sentry/minimal" "6.3.1"
-    "@sentry/types" "6.3.1"
-    "@sentry/utils" "6.3.1"
+    "@sentry/browser" "7.14.1"
+    "@sentry/types" "7.14.1"
+    "@sentry/utils" "7.14.1"
     hoist-non-react-statics "^3.3.2"
     tslib "^1.9.3"
 
@@ -2282,12 +2300,25 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.3.1.tgz#af3b54728b29f633f38fbe51b8c10e3834fbc158"
   integrity sha512-BEBn8JX1yaooCAuonbaMci9z0RjwwMbQ3Eny/eyDdd+rjXprZCZaStZnCvSThbNBqAJ8YaUqY2YBMnEwJxarAw==
 
+"@sentry/types@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.14.1.tgz#8d46c41595b2730f3426d54d1d0a9376b8739e33"
+  integrity sha512-PxAfrIwBci6ouHOuRsfVq1B16i92nQNV5IvlqfJIYciazVhDWJvbF52caJAPOFS1WnuQZ4zqBDMYvtnwld3JCA==
+
 "@sentry/utils@6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-6.3.1.tgz#6d8e691139b5b49d8c655ad1dcaf2cb3ff0d0b03"
   integrity sha512-cdtl/QWC9FtinAuW3w8QfvSfh/Q9ui5vwvjzVHiS1ga/U38edi2XX+cttY39ZYwz0SQG99cE10GOIhd1p7/mAA==
   dependencies:
     "@sentry/types" "6.3.1"
+    tslib "^1.9.3"
+
+"@sentry/utils@7.14.1":
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.14.1.tgz#95f408853129197fce5841ed0c9b2ed87400e183"
+  integrity sha512-CErQFbJMuhnHFKGkfIazQj5ETKoS7hG8PkoQEBt19F5QMh4+sbrJgnpIrIW8fVGtp0qKWKuIxQwD3b+1cFBozA==
+  dependencies:
+    "@sentry/types" "7.14.1"
     tslib "^1.9.3"
 
 "@sindresorhus/is@^0.14.0":
